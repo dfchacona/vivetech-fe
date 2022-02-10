@@ -28,6 +28,9 @@ function Home () {
           );
         })}
       </div>
+      <Link to={`/dashboard`}>
+        Dashboard
+      </Link>
     </div>
   );
 }
