@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { getAllProducts } from '../../services/ProductServices';
+import { getAllProducts } from '../../hooks/ProductServices';
 
 function Home () {
   const [products, setProducts] = useState();
@@ -14,25 +14,27 @@ function Home () {
   }, []);
 
   return (
-    <div className="container px-4">
-      <div className="h-14 py-4">
+    <div className="w-screen h-screen bg-slate-300">
+      <div className="header">
         <p className="text-xl font-bold">Products</p>
       </div>
-      <div className="container flex space-x-5">
-        {products && products.map((product, index) => {
+      <div className="container flex space-x-5 p-4">
+        {products && products.map(({id, name, description}) => {
           return (
-            <Link key={index} to={`/product/${product.id}`}>
-              <div className="card hover:bg-gray-100">
-                <p className="text-base font-bold">{product.name}</p>
-                <p className="text-sm">{product.description}</p>
+            <Link key={id} to={`/product/${id}`}>
+              <div className="card hover:bg-slate-200">
+                <p className="text-base font-bold">{name}</p>
+                <p className="text-sm">{description}</p>
               </div>
             </Link>
           );
         })}
       </div>
-      <Link to={`/dashboard`}>
-        Go to Dashboard
-      </Link>
+      <div className="inline-flex justify-center items-center h-14 w-screen">
+        <Link to={`/dashboard`}>
+          <button className="button">Dashboard</button>
+        </Link>
+      </div>
     </div>
   );
 }

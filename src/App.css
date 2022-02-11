@@ -6,4 +6,10 @@
   .card {
     @apply h-40 w-40 px-2 my-4 inline-flex justify-center items-center flex-col rounded shadow-lg border-black border-2;
   }
+  .header {
+    @apply inline-flex justify-center items-center h-14 w-screen bg-slate-500 p-4;
+  }
+  .button {
+    @apply rounded border border-black p-2 bg-slate-500 hover:bg-slate-400;
+  }
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
-import { getProductById } from '../../services/ProductServices';
+import { Link } from 'react-router-dom';
+import { getProductById } from '../../hooks/ProductServices';
 
 function Product (props) {
   let params = useParams();
@@ -16,12 +17,12 @@ function Product (props) {
   }, [params.id]);
 
   return (
-    <div className="container px-4">
-      <div className="h-14 py-4">
+    <div className="w-screen h-screen bg-slate-300">
+      <div className="header flex-col	h-16">
         <p className="text-3xl font-bold">{product && product.name}</p>
         <p className="text-l leading-3">{product && product.description}</p>
       </div>
-      <div className="container my-5">
+      <div className="w-screen inline-flex flex-col items-center p-5">
         <p className="text-l font-bold">Variants:</p>
         <table class="table-auto shadow-lg border rounded border-gray-200">
           <thead>
@@ -31,16 +32,24 @@ function Product (props) {
             </tr>
           </thead>
           <tbody>
-            {variants && variants.map((variant, index) => {
+            {variants && variants.map(({id, name, price}) => {
               return (
-                <tr key={index}>
-                  <td class="border px-4 py-2">{variant.name}</td>
-                  <td class="border px-4 py-2">{variant.price}</td>
+                <tr key={id}>
+                  <td class="border px-4 py-2">{name}</td>
+                  <td class="border px-4 py-2">{price}</td>
                 </tr>
               );
             })}
           </tbody>
         </table>
+      </div>
+      <div className="inline-flex justify-center items-center h-14 w-screen space-x-5">
+        <Link to={`/`}>
+          <button className="button">All Products</button>
+        </Link>
+        <Link to={`/`}>
+          <button className="button">Dashboard</button>
+        </Link>
       </div>
     </div>
   );
