@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .card {
+    @apply h-40 w-40 px-2 my-4 inline-flex justify-center items-center flex-col rounded shadow-lg border-black border-2;
+  }
+}

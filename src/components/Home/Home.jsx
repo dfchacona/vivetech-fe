@@ -22,7 +22,7 @@ function Home () {
         {products && products.map((product, index) => {
           return (
             <Link key={index} to={`/product/${product.id}`}>
-              <div className="inline-flex justify-center items-center flex-col direction-column px-2 my-4 h-40 w-40 box-border border-black border-2">
+              <div className="card hover:bg-gray-100">
                 <p className="text-base font-bold">{product.name}</p>
                 <p className="text-sm">{product.description}</p>
               </div>
