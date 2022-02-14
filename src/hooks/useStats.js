@@ -25,7 +25,7 @@ const useStats = () => {
         getStats();
     }, []);
 
-    return {stats, loading, error}
+    return {stats, loading, error};
 }
 
-export default useStats
+export default useStats;

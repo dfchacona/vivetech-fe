@@ -33,7 +33,7 @@ const useProducts = (id) => {
         getProducts();
     }, [id]);
 
-    return {products, product, loading, error}
+    return {products, product, loading, error};
 }
 
-export default useProducts
+export default useProducts;

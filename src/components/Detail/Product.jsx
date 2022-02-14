@@ -11,7 +11,7 @@ function Product () {
     <div className="w-screen h-screen bg-slate-300">
       <div className="header h-16">
         {loading ? (
-            <p className="text-3xl font-bold">{product && product.name}</p>
+            <p className="text-3xl font-bold">Loading</p>
           ) : (
             <div className="inline-flex items-center flex-col">
               <p className="text-3xl font-bold">{product && product.name}</p>
