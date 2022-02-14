@@ -11,7 +11,7 @@ function Home () {
       <div className="header">
         <p className="text-xl font-bold">Products</p>
       </div>
-      <div className="container flex space-x-5 p-4">
+      <div className="container flex space-x-5 px-4">
         {loading &&
           <div className="card">
             <p className="text-m my-4">Loading</p>

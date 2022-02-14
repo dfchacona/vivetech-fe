@@ -5,6 +5,7 @@ import { API_URL } from '../consts';
 
 const useProducts = (id) => {
     const [products, setProducts] = useState();
+    const [product, setProduct] = useState();
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -16,11 +17,11 @@ const useProducts = (id) => {
         async function getProducts() {
             axios.defaults.baseURL = API_URL;
             axios.get(axiosRequest)
-            .then((productsResponse) => {
+            .then(({data}) => {
                 if (id) {
-                  setProducts(productsResponse.data[0]);
+                  setProduct(data[0]);
                 } else {
-                  setProducts(productsResponse.data);
+                  setProducts(data);
                 }
                 setLoading(false);
             })
@@ -32,7 +33,7 @@ const useProducts = (id) => {
         getProducts();
     }, [id]);
 
-    return {products, loading, error}
+    return {products, product, loading, error}
 }
 
 export default useProducts

@@ -13,8 +13,8 @@ const useStats = () => {
         async function getStats() {
             axios.defaults.baseURL = API_URL;
             axios.get("/stats")
-            .then((statsResponse) => {
-                setStats(statsResponse.data);
+            .then(({data}) => {
+                setStats(data);
                 setLoading(false);
             })
             .catch((error) => {
